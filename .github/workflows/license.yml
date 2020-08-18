@@ -1,0 +1,26 @@
+name: Add License
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set Up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Add License
+      uses: dephraiim/license-action@v0.2
+      with:
+        LICENSE_TYPE: Apache
+        AUTHOR: Chucknorris
